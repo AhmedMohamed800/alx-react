@@ -1,0 +1,22 @@
+.Notifications{
+    padding: 10px 10px;
+    border: 1px dashed red;
+    margin: 10px;
+}
+
+#root-notification{
+    flex-basis: 30%;
+}
+
+ul li{
+    margin-left: 40px;
+}
+
+
+[data-priority="default"]{
+    color: #28126b;
+}
+
+[data-priority="urgent"]{
+    color: red;
+}
