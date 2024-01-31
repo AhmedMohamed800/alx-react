@@ -1,25 +1,25 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { shallow } from 'enzyme';
+import Notifications from '../Notifications/Notifications';
 
-test('App renders without crashing', () => {
-    render(<App />);
-});
+describe("Testing the <Notifications /> Component", () => {
 
-test('App renders a div with the class App-header', () => {
-    const { container } = render(<App />);
-    const headerDiv = container.querySelector('.App-header');
-    expect(headerDiv).toBeInTheDocument();
-});
+    let wrapper;
 
-test('App renders a div with the class App-body', () => {
-    const { container } = render(<App />);
-    const bodyDiv = container.querySelector('.App-body');
-    expect(bodyDiv).toBeInTheDocument();
-});
+    beforeEach(() => {
+        wrapper = shallow(<Notifications />);
+    });
 
-test('App renders a div with the class App-footer', () => {
-    const { container } = render(<App />);
-    const footerDiv = container.querySelector('.App-footer');
-    expect(footerDiv).toBeInTheDocument();
+    it("<Notifications /> is rendered without crashing", () => {
+        expect(wrapper).to.not.be.an('undefined');
+    });
+
+    it("<Notifications /> renders three list items", () => {
+        expect(wrapper.find('li')).to.have.lengthOf(3);
+    });
+
+    it("<Notifications /> render the text 'Here is the list of notifications'", () => {
+        expect(wrapper.contains(<p>Here is the list of notifications</p>)).to.equal(true);
+    });
+
 });
