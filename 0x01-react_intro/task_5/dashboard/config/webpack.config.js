@@ -1,70 +1,51 @@
-// webpack.config.js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+
 module.exports = {
-    externals: {
-        'react': 'React'
-    },
+    mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.resolve('dist'),
+        path: path.resolve('./dist'),
         filename: 'bundle.js',
-        publicPath: '/',
+    },
+    performance: {
+        maxAssetSize: 999999999999,
+        maxEntrypointSize: 999999999999
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        static: {
+            directory: path.resolve('./dist'),
+        },
+        hot: true,
+        port: 8564
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-react', '@babel/preset-env'],
-                    },
-                },
-            },
-            {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 use: [
                     'file-loader',
                     {
                         loader: 'image-webpack-loader',
                         options: {
-                            bypassingOnDebug: true,
-                            disable: true,
-                        },
-                    },
-                ],
+                            bypassOnDebug: true,
+                            disable: true
+                        }
+                    }
+                ]
             },
-        ],
-    },
-    devtool: 'inline-source-map',
-    mode: 'development',
-    devServer: {
-        static: path.join('./', 'dist'),
-        compress: true,
-        port: 8564,
-        hot: true,
-        historyApiFallback: true,
-    },
-    resolve: {
-        extensions: [".*", ".js", ".jsx"],
-    },
-    performance: {
-        maxAssetSize: 1000000,
-        maxEntrypointSize: 1000000,
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            name: 'index.html',
-            inject: false,
-            template: './dist/index.html',
-        })
-    ],
+            {
+                test: /\.(js|jsx)$/i,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
+    }
+
 };
