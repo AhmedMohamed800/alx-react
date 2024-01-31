@@ -1,10 +1,12 @@
 // webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: '../src/index.js',
+    externals: {
+        'react': 'React'
+    },
+    entry: './src/index.js',
     output: {
         path: path.resolve('dist'),
         filename: 'bundle.js',
@@ -52,7 +54,7 @@ module.exports = {
         historyApiFallback: true,
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx'],
+        extensions: [".*", ".js", ".jsx"],
     },
     performance: {
         maxAssetSize: 1000000,

@@ -1,0 +1,65 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+:root{
+  --primary_color: red;
+}
+
+
+html,body{
+
+  height: 100%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  flex: 70%;
+}
+
+
+/* App-header */
+.App-header{
+  display: flex;
+  align-items: center;
+  color: var(--primary_color);
+}
+
+/* App body */
+.App-body{
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  padding: 2rem;
+  height: 100%;
+}
+
+.App-body p:first-child{
+  margin-bottom: 10px;
+}
+
+.App-body :not(label:first-child){
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+/* App-footer */
+.App-footer{
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+}
