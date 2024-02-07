@@ -1,13 +1,11 @@
-// webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve("dist"),
     filename: 'bundle.js',
-    publicPath: '/',
   },
   module: {
     rules: [
@@ -58,8 +56,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: "React App",
       name: 'index.html',
-      template: './dist/index.html',
+      template: './public/index.html',
     })
   ],
 };
