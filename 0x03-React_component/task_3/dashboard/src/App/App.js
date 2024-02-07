@@ -6,8 +6,6 @@ import Notifications from '../Notifications/Notifications';
 import './App.css';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
-import BodySection from '../BodySection/BodySection';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -17,11 +15,11 @@ class App extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-   coursesList = [{ id: 1, name: 'ES6', credit: 60 },
+  coursesList = [{ id: 1, name: 'ES6', credit: 60 },
   { id: 2, name: 'Webpack', credit: 20 },
   { id: 3, name: 'React', credit: 40 }]
 
-   notificationsList = [
+  notificationsList = [
     { id: 1, value: 'New course available', type: 'default' },
     { id: 2, value: 'New resume available', type: 'urgent' },
   ]
@@ -44,8 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-
-        <Notifications displayDrawer={true}/>
+        <Notifications displayDrawer={true} />
         <div className="App">
           <Header />
           <div className='App-body'>
