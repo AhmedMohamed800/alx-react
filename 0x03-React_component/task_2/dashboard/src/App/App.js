@@ -8,10 +8,6 @@ import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 
 
-
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -47,7 +43,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Notifications listNotifications={this.listNotifications} />
+        <Notifications displayDrawer={true}/>
         <div className="App">
           <Header />
           <div className='App-body'>
