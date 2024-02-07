@@ -5,26 +5,22 @@ import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 
 describe('Test App.js', () => {
-  it('App without crashing', (done) => {
-    expect(shallow(<App />).exists());
-    done();
+  it('App without crashing', () => {
+    expect(shallow(<App />).exists()).toBeTruthy();
   });
 
-  it('div with the class App-header', (done) => {
+  it('div with the class App-header', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.contains(<Header />));
-    done();
+    expect(wrapper.contains(<Header />)).toBeTruthy();
   });
 
-  it('div with the class App-body', (done) => {
+  it('div with the class App-body', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.contains(<Login />));
-    done();
+    expect(wrapper.contains(<Login />)).toBeTruthy();
   });
 
-  it('div with the class App-footer', (done) => {
+  it('div with the class App-footer', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.contains(<Footer />));
-    done();
+    expect(wrapper.contains(<Footer />)).toBeTruthy();
   });
 });
