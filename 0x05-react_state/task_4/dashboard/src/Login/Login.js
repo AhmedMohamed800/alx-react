@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite";
+import PropTypes from "prop-types";
 
-function Login() {
+
+function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [enableSubmit, setEnableSubmit] = useState(false);
